@@ -8,6 +8,7 @@ export default App = ({route, navigation}) => {
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState([]);
   
+  console.log(city)
  
   if (city!== '') {
     useEffect(() => {
@@ -22,8 +23,7 @@ export default App = ({route, navigation}) => {
      <Text>Erreur interne</Text>
     )
   }
-      
-    if(typeof(data) !== undefined && data.length >= 0 ){
+
       return (
         <View style={{ flex: 1, padding: 24 ,  backgroundColor : '#3DADF2'}}>
           {isLoading ?  
@@ -56,30 +56,10 @@ export default App = ({route, navigation}) => {
               />
             </View>
           )}
-      {/*     <View style={{marginLeft:110, paddingLeft:20, marginTop:20, marginRight:50}}>
-            <TouchableHighlight 
-            style={{ ...styles.btn, backgroundColor: "#024059" }}
-            onPress={() => navigation.navigate('Details', {data:data})}
-            >
-                <View style={styles.button}>
-                  <Text style={{color: 'white', fontWeight:'bold', fontSize:18}}>
-                    Voir plus</Text>
-                </View>
-            </TouchableHighlight>
-          </View> */}
           
         </View>
       );
-    }else{
-      return (
-        <View style={styles.center}>
-          <Image source={require('../../assets/error.jpg')} style={styles.image}>
-
-          </Image>
-          <Text style ={{marginTop:20, fontSize: 22,  color: '#024059'}}>La ville n'existe pas</Text> 
-          </View>
-      )
-    }
+    
      
 
   

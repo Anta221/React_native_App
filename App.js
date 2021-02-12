@@ -6,12 +6,9 @@ import { createMaterialTopTabNavigator } from '@react-navigation/material-top-ta
 import  DetailsScreen from "./src/views/DetailsScreen";
 import  HomeScreen from "./src/views/HomeScreen";
 import  SearchScreen  from "./src/components/SearchScreen";
-import  AuthentScreen  from "./src/views/AuthentScreen";
 import { Ionicons } from '@expo/vector-icons';
 import MeteoDetails from './src/views/MeteoDetails';
-import  CountrySearch  from "./src/components/CountrySearch";
-import CountryDetails from './src/views/CountryDetails';
-import Gallery from './src/views/Gallery';
+
 
 
 const HomeStack = createStackNavigator();
@@ -20,7 +17,6 @@ function HomeStackScreen() {
   return (
     <HomeStack.Navigator>
       <HomeStack.Screen name="Home" component={HomeScreen} />
-      <HomeStack.Screen name="Authent" component={AuthentScreen} />
     </HomeStack.Navigator>
   );
 }
@@ -37,16 +33,6 @@ function SearchStackScreen() {
   );
 }
 
-const SearchCountryStack = createStackNavigator();
-
-function SearchStackCountryScreen() {
-  return (
-    <SearchCountryStack.Navigator>
-      <SearchCountryStack.Screen name="Rechercher un pays" component={CountrySearch} />
-      <SearchCountryStack.Screen name="CountryDetails" component={CountryDetails} options={{ headerTintColor: '#3DADF2' }} />
-    </SearchCountryStack.Navigator>
-  );
-}
 
 const Tab = createMaterialTopTabNavigator ();
 
@@ -83,8 +69,8 @@ export default function App() {
         })}>
         <Tab.Screen name="Home" component={HomeStackScreen} />
         <Tab.Screen name="Search" component={SearchStackScreen} />
-        <Tab.Screen name="SearchCountry" component={SearchStackCountryScreen} />
-        <Tab.Screen name="Gallery" component={Gallery} />
+        
+    
       </Tab.Navigator>
     </NavigationContainer>
   );
